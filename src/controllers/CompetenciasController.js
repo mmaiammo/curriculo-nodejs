@@ -2,8 +2,8 @@
 const Competencias = require('../models/CompetenciasData');
 module.exports = {
   async read(request, response) {
-    // const competenciaList = await Competencias.find();
-    return response.json({ "competenciaList": "teste" });
+    const competenciaList = await Competencias.find();
+    return response.json(competenciaList);
   },
 
   create(request, response) {
