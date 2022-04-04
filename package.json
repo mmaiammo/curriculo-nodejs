@@ -1,0 +1,29 @@
+{
+  "name": "curriculo-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "forever -c 'nodemon --exitcrash' src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmaiammo/curriculo-nodejs.git"
+  },
+  "keywords": [],
+  "author": "Marcelo Maia <mmaia.inf@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmaiammo/curriculo-nodejs/issues"
+  },
+  "homepage": "https://github.com/mmaiammo/curriculo-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
