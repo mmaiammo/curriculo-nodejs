@@ -1,8 +1,10 @@
 const express = require("express");
 const routes = require('./routes'); 
+require("dotenv").config();
+
 const port = process.env.PORT || 3333;
 console.log("port:" + port);
-console.log("port:" + process.env.SECRET_KEY);
+console.log("SECRET_KEY:" + process.env.SECRET_KEY);
 const app = express();
 require('./config/dbConfig');
 
