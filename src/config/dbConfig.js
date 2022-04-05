@@ -7,8 +7,8 @@ console.log('uri: ' + uri);
 const connection = mongoose
   .connect(uri,
   {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
   })
   .then(() => {
     console.log("Conectado");
