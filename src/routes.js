@@ -16,10 +16,10 @@ const CurriculosController = require("./controllers/CurriculoController");
 // routes.get("/curriculos", CurriculosController.read);
 
 routes.get("/curriculo", CurriculosController.findAll);
-// router.get("/curriculos/:id", CurriculosController.findOne);
-// router.post("/curriculos", CurriculosController.create);
-// router.patch("/curriculos/:id", CurriculosController.update);
-// router.delete("/curriculos/:id", CurriculosController.destroy);
+routes.get("/curriculo/:id", CurriculosController.findOne);
+// routes.post("/curriculo", CurriculosController.create);
+// routes.patch("/curriculo/:id", CurriculosController.update);
+// routes.delete("/curriculo/:id", CurriculosController.destroy);
 
 //-- Exports
 module.exports = routes;
