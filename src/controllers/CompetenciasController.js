@@ -1,5 +1,5 @@
 
-const Competencias = require('../models/CompetenciasData');
+const Competencias = require('../models/CompetenciasModel');
 module.exports = {
   async read(request, response) {
     const competenciaList = await Competencias.find();
