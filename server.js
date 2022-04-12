@@ -5,6 +5,7 @@ const dbConfig = require("./config/database.config");
 const mongoose = require("mongoose");
 const UserRoute = require("./app/routes/UserRouter");
 const CurriculoRoute = require("./app/routes/CurriculoRouter");
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -28,6 +29,6 @@ app.get("/", (req, res) => {
   res.json({ message: "API em desenvolvimento" });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Servidor ouvindo a porta 3000");
 });
