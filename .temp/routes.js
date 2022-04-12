@@ -16,7 +16,7 @@ const CurriculosController = require("./controllers/CurriculoController");
 // routes.get("/curriculos", CurriculosController.read);
 
 routes.get("/curriculo", CurriculosController.findAll);
-routes.get("/curriculo/:id", CurriculosController.findOne);
+routes.get("/curriculo/<id>", CurriculosController.findOne);
 // routes.post("/curriculo", CurriculosController.create);
 // routes.patch("/curriculo/:id", CurriculosController.update);
 // routes.delete("/curriculo/:id", CurriculosController.destroy);

@@ -2,11 +2,11 @@
   "name": "curriculo-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "forever": "forever -c 'nodemon --exitcrash' src/index.js",
-    "start": "node src/index"
+    "dev": "nodemon server.js",
+    "forever": "forever -c 'nodemon --exitcrash' server.js",
+    "start": "node server"
   },
   "repository": {
     "type": "git",
