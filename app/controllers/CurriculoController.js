@@ -24,7 +24,8 @@ exports.create = async (req, res) => {
     contato: req.body.contato,
     hobbies: req.body.hobbies,
     experiencia: req.body.experiencia,
-    // competencia: req.body.competencia,
+    competencia: req.body.competencia,
+    formacao: req.body.formacao,
   });
 
   await curriculo
