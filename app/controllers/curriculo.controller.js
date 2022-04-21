@@ -7,7 +7,7 @@ exports.findAll = async (req, res) => {
       const curriculo = await CurriculoModel.find();
     res.status(200).json({
       // message: "Achamos todos!! " + toEmoji.get(":mag:"),
-      message: "Achamos todos!!"),
+      message: "Achamos todos!!",
       curriculo: curriculo,
     });
   } catch (error) {
