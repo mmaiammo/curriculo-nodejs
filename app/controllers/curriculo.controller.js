@@ -4,10 +4,11 @@ const emojiUnicode = require("emoji-unicode")
 // Retrieve all users from the database.
 exports.findAll = async (req, res) => {
     try {
-    const curriculo = await CurriculoModel.find();
-    res
-      .status(200)
-      .json({ curriculo: curriculo, message: toEmoji.get(":heart_eyes:") });
+      const curriculo = await CurriculoModel.find();
+    res.status(200).json({
+      message: "Achamos todos!! " + toEmoji.get(":mag:"),
+      curriculo: curriculo,
+    });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -17,7 +18,7 @@ exports.findAll = async (req, res) => {
 exports.findOne = async (req, res) => {
   try {
     const curriculo = await CurriculoModel.findById(req.params.id);
-    res.status(200).json({ curriculo: curriculo, message: toEmoji.get(":heart_eyes:") });
+    res.status(200).json({ message: toEmoji.get(":heart_eyes:"), curriculo: curriculo });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -28,8 +29,7 @@ exports.create = async (req, res) => {
   if (!req.body.nome && !req.body.objetivo && !req.body.cargo) {
     res.status(400).send({
       message:
-        "Ei, não esqueça de preencher os campos obrigatórios ;)" +
-        req.body.nome,
+        "Ei ${req.body.nome}, não esqueça de preencher os campos obrigatórios ;)"
     });
   }
 
