@@ -1,10 +1,13 @@
 const CurriculoModel = require("../models/curriculo.model");
-
+const emojiUnicode = require("emoji-unicode")
+    , toEmoji = require("emoji-name-map");
 // Retrieve all users from the database.
 exports.findAll = async (req, res) => {
     try {
     const curriculo = await CurriculoModel.find();
-    res.status(200).json(curriculo);
+    res
+      .status(200)
+      .json({ curriculo: curriculo, message: toEmoji.get(":heart_eyes:") });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -14,7 +17,7 @@ exports.findAll = async (req, res) => {
 exports.findOne = async (req, res) => {
   try {
     const curriculo = await CurriculoModel.findById(req.params.id);
-    res.status(200).json(curriculo);
+    res.status(200).json({ curriculo: curriculo, message: toEmoji.get(":heart_eyes:") });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -25,7 +28,7 @@ exports.create = async (req, res) => {
   if (!req.body.nome && !req.body.objetivo && !req.body.cargo) {
     res.status(400).send({
       message:
-        "Ei, não esqueça de preencher os campos obrigatórissssssos ;)" +
+        "Ei, não esqueça de preencher os campos obrigatórios ;)" +
         req.body.nome,
     });
   }
@@ -102,7 +105,7 @@ exports.destroy = async (req, res) => {
       } else {
         res.send({
           message:
-            "Prontinho, currículo apagado! Você criá-lo novamente a qualquer momento.",
+            "Prontinho, currículo apagado! Você pode recriá-lo sempre que desejar.",
         });
       }
     })
