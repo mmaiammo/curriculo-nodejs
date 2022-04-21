@@ -1,19 +1,33 @@
-const CurriculoModel = require("../model/CurriculoModel");
+const CurriculoModel = require("../models/curriculo.model");
+
+// Retrieve all users from the database.
+exports.findAll = async (req, res) => {
+    try {
+    const curriculo = await CurriculoModel.find();
+    res.status(200).json(curriculo);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+// Find a single User with an id
+exports.findOne = async (req, res) => {
+  try {
+    const curriculo = await CurriculoModel.findById(req.params.id);
+    res.status(200).json(curriculo);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
 
 // Create and Save a new user
 exports.create = async (req, res) => {
-  if (
-    !req.body.nome &&
-    !req.body.objetivo &&
-    !req.body.cargo
-  ) {
-    res
-      .status(400)
-      .send({
-        message:
-          "Ei, não esqueça de preencher os campos obrigatórissssssos ;)" +
-          req.body.nome,
-      });
+  if (!req.body.nome && !req.body.objetivo && !req.body.cargo) {
+    res.status(400).send({
+      message:
+        "Ei, não esqueça de preencher os campos obrigatórissssssos ;)" +
+        req.body.nome,
+    });
   }
 
   const curriculo = new CurriculoModel({
@@ -31,6 +45,7 @@ exports.create = async (req, res) => {
   await curriculo
     .save()
     .then((data) => {
+      res.json(curriculo);
       res.send({
         message: "Pronto, agora o seu currículo está bem guardado ;)",
         curriculo: data,
@@ -43,26 +58,6 @@ exports.create = async (req, res) => {
           "Oops, não deu pra guardar o seu currículo. Dá um tempinho e vai de novo.",
       });
     });
-};
-
-// Retrieve all users from the database.
-exports.findAll = async (req, res) => {
-  try {
-    const curriculo = await CurriculoModel.find();
-    res.status(200).json(curriculo);
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
-
-// Find a single User with an id
-exports.findOne = async (req, res) => {
-  try {
-    const curriculo = await CurriculoModel.findById(req.params.id);
-    res.status(200).json(curriculo);
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
 };
 
 // Update a curriculo by the id in the request
@@ -84,7 +79,9 @@ exports.update = async (req, res) => {
           message: `Não achamos o seu currículo.`,
         });
       } else {
-        res.send({ message: "Deu tudo certo, o seu currículo já está atualizado." });
+        res.send({
+          message: "Deu tudo certo, o seu currículo já está atualizado.",
+        });
       }
     })
     .catch((err) => {
@@ -104,7 +101,8 @@ exports.destroy = async (req, res) => {
         });
       } else {
         res.send({
-          message: "Prontinho, currículo apagado! Você criá-lo novamente a qualquer momento.",
+          message:
+            "Prontinho, currículo apagado! Você criá-lo novamente a qualquer momento.",
         });
       }
     })
