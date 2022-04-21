@@ -3,5 +3,5 @@
 
 <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
    <a href="https://github.com/mmaiammo">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/mmaiammo/nlw1?style=social">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/mmaiammo">
   </a>
