@@ -105,5 +105,5 @@ dist
 
 # Temporários
 temp
-.temp
-.vscode
+.temp/
+.vscode/
