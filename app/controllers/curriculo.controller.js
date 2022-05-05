@@ -1,7 +1,5 @@
 const CurriculoModel = require("../models/curriculo.model");
-// const emojiUnicode = require("emoji-unicode")
-//     , toEmoji = require("emoji-name-map");
-// Retrieve all users from the database.
+
 exports.findAll = async (req, res) => {
     try {
       const curriculo = await CurriculoModel.find();
@@ -15,7 +13,6 @@ exports.findAll = async (req, res) => {
   }
 };
 
-// Find a single User with an id
 exports.findOne = async (req, res) => {
   try {
     const curriculo = await CurriculoModel.findById(req.params.id);
@@ -25,8 +22,8 @@ exports.findOne = async (req, res) => {
   }
 };
 
-// Create and Save a new user
 exports.create = async (req, res) => {
+
   if (!req.body.nome && !req.body.objetivo && !req.body.cargo) {
     res.status(400).send({
       message:
@@ -64,7 +61,6 @@ exports.create = async (req, res) => {
     });
 };
 
-// Update a curriculo by the id in the request
 exports.update = async (req, res) => {
   if (!req.body) {
     res.status(400).send({
@@ -95,7 +91,6 @@ exports.update = async (req, res) => {
     });
 };
 
-// Delete a user with the specified id in the request
 exports.destroy = async (req, res) => {
   await CurriculoModel.findByIdAndRemove(req.params.id)
     .then((data) => {

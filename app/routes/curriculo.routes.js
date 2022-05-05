@@ -11,7 +11,7 @@ module.exports = function (app) {
 
   app.get(
     "/api/curriculo/findAll",
-    // [authJwt.verifyToken, authJwt.isAdmin],
+    //[authJwt.verifyToken, authJwt.isAdmin],
     controller.findAll
   );
 
